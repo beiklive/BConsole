@@ -3,6 +3,13 @@
 #include "ElemContainer.h"
 
 using namespace std;
+namespace TimeTools{
+    void FlushRate(const int& delaytime)
+    {
+        usleep(1000000/delaytime);
+    }
+}
+
 
 int main(int argc, char **argv)
 {
@@ -24,9 +31,9 @@ int main(int argc, char **argv)
         // a.RemoveBorder();
         // a.SetBorder('+');
         a.Finish();
-        ImageFlush Gen(a);
+        ImageFlush<ElemContainer> Gen(a);
         Gen.Flush();
-        usleep(1000000/1);
+        TimeTools::FlushRate(10);
         i++;
     }
 
